@@ -73,3 +73,146 @@ Macete para criar uma data de X dias atrás:
 
 const date = new Date(new Date().setDate(new Date().getDate() - 365));
 COMMIT: useState
+
+###############################################################################
+Checklist
+Design Figma
+https://www.figma.com/file/PehiT8Dw4Lv5ioTSULZeRI/DSMeta3
+
+https://www.figma.com/file/Yu2RHFmirHQ4BIVZM2XxY6/DSMeta2
+
+https://www.figma.com/file/EN1zFtk4eY3Jgmpgi9YaMG/DSMeta1
+
+Pré-requisito: Git instalado
+DÚVIDAS: veja o canal #duvidas-frequentes no Discord do evento
+
+Image
+
+Ferramentas
+DÚVIDAS: veja o canal #duvidas-frequentes no Discord do evento
+
+Nodejs 16 e Yarn (vídeo: https://youtu.be/x5tgFTS-CYA )
+STS (vídeo: https://youtu.be/TGQ0K9QsX88 )
+VS Code
+IntelliCode
+ESLint
+JSX HTML <tags/>
+Passo: criar projeto ReactJS
+DevSuperior no Instagram
+
+yarn create vite frontend --template react-ts
+DÚVIDAS: veja o canal #duvidas-frequentes no Discord do evento
+
+Passo: criar projeto Spring Boot
+Criar projeto Spring Boot no Spring Initializr com as seguintes dependências:
+
+Web
+JPA
+H2
+Security
+Ajuste no arquivo pom.xml:
+
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-resources-plugin</artifactId>
+	<version>3.1.0</version><!--$NO-MVN-MAN-VER$ -->
+</plugin>
+Botão direito no projeto -> Maven -> Update project (force update)
+Passo: salvar primeira versão no Github
+DÚVIDAS: veja o canal #duvidas-frequentes no Discord do evento
+
+git init
+
+git add .
+
+git commit -m "Project created"
+
+git branch -M main
+
+git remote add origin git@github.com:seuusuario/seurepositorio.git
+
+git push -u origin main
+Passo: "limpar" o projeto ReactJS
+Vamos pegar o CSS que fizemos nas aulas de preparação:
+
+https://github.com/acenelio/dsmeta-css
+
+COMMIT: Project clean
+Passo: Primeiro componente
+Projeto HTML/CSS: https://github.com/acenelio/dsmeta-css
+
+COMMIT: First component
+Passo: Outros componentes
+COMMIT: Other components
+Passo: Datepicker
+Documentação: https://github.com/Hacker0x01/react-datepicker
+
+yarn add react-datepicker@4.8.0 @types/react-datepicker@4.4.2
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+<DatePicker
+    selected={new Date()}
+    onChange={(date: Date) => {}}
+    className="dsmeta-form-control"
+    dateFormat="dd/MM/yyyy"
+/>
+COMMIT: Datepicker
+Passo: React Hook useState para manter estado das datas
+Macete para criar uma data de X dias atrás:
+
+const date = new Date(new Date().setDate(new Date().getDate() - 365));
+COMMIT: useState
+#######################################################################
+Checklist
+Passo: Primeira requisição com Axios e useEffect
+yarn add axios@0.27.2
+COMMIT: Axios, useEffect first request
+Passo: Listagem de vendas
+Definição da BASE_URL:
+
+export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
+COMMIT: Sale listing
+Passo: Passando as datas como argumento
+COMMIT: Date update
+Passo: Enviar notificação
+COMMIT: Send notification
+Passo: Mensagem Toast de confirmação
+yarn add react-toastify@9.0.5
+No App.tsx:
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+COMMIT: Toast
+Passo: Deploy no Netlify
+Antes: acrescente window.React = React no seu main.tsx conforme abaixo, e salve um novo commit:
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+
+window.React = React
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+https://www.netlify.com/
+
+Deploy básico
+
+Base directory: frontend
+Build command: yarn build
+Publish directory: frontend/dist
+Variáveis de ambiente:
+VITE_BACKEND_URL
+Configurações adicionais
+
+Site settings -> Domain Management: (colocar o nome que você quiser)
+Deploys -> Trigger deploy
+###############################################################################
+
+Rodar a aplicação frontend
+no terminal na pasta c:/projetos/dsmeta/frontend => utilizando o terminal git bach
+$ yarn dev
